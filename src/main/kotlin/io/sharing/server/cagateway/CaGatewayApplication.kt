@@ -1,4 +1,4 @@
-package me.kzv.cagateway
+package io.sharing.server.cagateway
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
