@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.22"
 }
 
-group = "me.kzv"
+group = "io.sharing.server"
 version = "0.0.1-SNAPSHOT"
 
 java {

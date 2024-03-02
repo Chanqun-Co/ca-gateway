@@ -2,6 +2,8 @@ server:
   port: 8000
 
 eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
   client:
     fetch-registry: true
     register-with-eureka: true
@@ -20,18 +22,18 @@ spring:
             - Path=/ca-user/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/ca-user/(?<segment>.*), /$\{segment}
+            - StripPrefix=1
         - id: ca-product
           uri: lb://CA-PRODUCT
           predicates:
             - Path=/ca-product/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/ca-product/(?<segment>.*), /$\{segment}
+            - StripPrefix=1
         - id: ca-reservation
           uri: lb://CA-RESERVATION
           predicates:
             - Path=/ca-reservation/**
           filters:
             - RemoveRequestHeader=Cookie
-            - RewritePath=/ca-reservation/(?<segment>.*), /$\{segment}
+            - StripPrefix=1
